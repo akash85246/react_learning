@@ -28,22 +28,35 @@
 //   </>
 // );
 
+// import React from "react";
+
+// import ReactDOM from "react-dom/client";
+// const container = document.getElementById("root");
+// const root = ReactDOM.createRoot(container);
+
+// const date = new Date();
+// const hour = date.getHours();
+
+// root.render(
+//   <>
+//     <h1>Hello friends</h1>
+//     {hour > 0 && hour < 12 && <h2 style={{ color: "red" }}>Good morning</h2>}
+//     {hour > 12 && hour < 18 && (
+//       <h2 style={{ color: "green" }}>Good afternoon</h2>
+//     )}
+//     {hour > 18 && <h2 style={{ color: "blue" }}>Good evening</h2>}
+//   </>
+// );
 import React from "react";
-
 import ReactDOM from "react-dom/client";
+import Heading from "./App";
+import List from "./List";
 const container = document.getElementById("root");
+
 const root = ReactDOM.createRoot(container);
-
-const date = new Date();
-const hour = date.getHours();
-
 root.render(
   <>
-    <h1>Hello friends</h1>
-    {hour > 0 && hour < 12 && <h2 style={{ color: "red" }}>Good morning</h2>}
-    {hour > 12 && hour < 18 && (
-      <h2 style={{ color: "green" }}>Good afternoon</h2>
-    )}
-    {hour > 18 && <h2 style={{ color: "blue" }}>Good evening</h2>}
+    <Heading />
+    <List />
   </>
 );
