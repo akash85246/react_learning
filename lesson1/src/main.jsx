@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+
 function App() {
   const [date, setDate] = useState(new Date());
   const name = "Akash";
