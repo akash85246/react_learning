@@ -1,62 +1,32 @@
-// import React from "react";
-// import ReactDOM from "react-dom/client";
-
-// var name = "Akash";
-// var surname = "Rajput";
-// const value = 8;
-
-// const loc = document.getElementById("root");
-// const root = ReactDOM.createRoot(loc);
-
-// const customeStyle = {
-//   color: "red",
-//   fontSize: "20px",
-//   backgroundColor: "silver",
-//   border: "20px solid black",
-// };
-
-// root.render(
-//   <>
-//     <h1
-//       className="heading"
-//       contentEditable="true"
-//       spellCheck="false"
-//       style={customeStyle}
-//     >
-//       Hello {name} {surname}
-//     </h1>
-//   </>
-// );
-
-// import React from "react";
-
-// import ReactDOM from "react-dom/client";
-// const container = document.getElementById("root");
-// const root = ReactDOM.createRoot(container);
-
-// const date = new Date();
-// const hour = date.getHours();
-
-// root.render(
-//   <>
-//     <h1>Hello friends</h1>
-//     {hour > 0 && hour < 12 && <h2 style={{ color: "red" }}>Good morning</h2>}
-//     {hour > 12 && hour < 18 && (
-//       <h2 style={{ color: "green" }}>Good afternoon</h2>
-//     )}
-//     {hour > 18 && <h2 style={{ color: "blue" }}>Good evening</h2>}
-//   </>
-// );
 import React from "react";
-import ReactDOM from "react-dom/client";
-import Heading from "./App";
-import List from "./List";
+import ReactDOM from "react-dom";
 const container = document.getElementById("root");
+
+function Card(props) {
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <img src={props.img} alt="player img" />
+      <p>{props.phone}</p>
+      <p>{props.gmail}</p>
+    </div>
+  );
+}
 
 const root = ReactDOM.createRoot(container);
 root.render(
   <>
-    <Heading />
-    <List />
+    <Card
+      name="Akash"
+      img="https://media.istockphoto.com/id/1434947710/photo/businessman-headphones-and-laptop-webinar-in-office-with-coffee-on-table-video-call-or.jpg?s=1024x1024&w=is&k=20&c=NvC5p29pg1jBXw-IEzCTYg3Mv1A11k8BGVFqRw-DCDk="
+      phone="100000"
+      gmail="adhdi@akgec.ac.in"
+    />
+    <Card
+      name="Shiva"
+      img="https://media.istockphoto.com/id/1434947710/photo/businessman-headphones-and-laptop-webinar-in-office-with-coffee-on-table-video-call-or.jpg?s=1024x1024&w=is&k=20&c=NvC5p29pg1jBXw-IEzCTYg3Mv1A11k8BGVFqRw-DCDk="
+      phone="545450"
+      gmail="adhdsddi@akgec.ac.in"
+    />
   </>
 );
