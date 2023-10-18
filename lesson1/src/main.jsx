@@ -1,20 +1,46 @@
-// import React from "react";
-// import ReactDOM from "react-dom/client";
-// import App from "./App.jsx";
-// import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom";
 
-// ReactDOM.createRoot(document.getElementById("root")).render(
-//   <>
-//     <h1>Hello world</h1>
-//     <p>I am lost</p>
-//   </>
-// );
+function MovieList() {
+  return (
+    <>
+      <h1>MY FAVORITE MOVIES 2023</h1>
+      <ul style={{ listStyle: "none" }}>
+        <li>
+          <h2>SMILE</h2>
+          <img
+            src="./src/assets/smile-poster.jpeg"
+            alt="POSTER1"
+            style={{
+              height: 500,
+            }}
+          />
+        </li>
+        <li>
+          <h2>MEGAN</h2>
+          <img
+            src="./src/assets/megan.jpg"
+            alt="POSTER2"
+            style={{
+              height: 500,
+            }}
+          />
+        </li>
+        <li>
+          <h2>BULBBUL</h2>
+          <img
+            src="./src/assets/bulbbul_poster.jpg"
+            alt="POSTER3"
+            style={{
+              height: 500,
+            }}
+          />
+        </li>
+      </ul>
+    </>
+  );
+}
 
-//doubt
-var React = require("react");
-var ReactDOM = require("react-dom");
+const rootElement = document.getElementById("root");
 
-const element = <h1>Hello World</h1>;
-const root = document.getElementById("root");
-
-ReactDOM.render(element, root);
+ReactDOM.render(<MovieList />, rootElement);
