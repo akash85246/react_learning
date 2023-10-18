@@ -1,20 +1,17 @@
-// import React from "react";
-// import ReactDOM from "react-dom/client";
-// import App from "./App.jsx";
-// import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-// ReactDOM.createRoot(document.getElementById("root")).render(
-//   <>
-//     <h1>Hello world</h1>
-//     <p>I am lost</p>
-//   </>
-// );
+var name = "Akash";
+var surname = "Rajput";
+const value = 8;
 
-//doubt
-var React = require("react");
-var ReactDOM = require("react-dom");
-
-const element = <h1>Hello World</h1>;
-const root = document.getElementById("root");
-
-ReactDOM.render(element, root);
+const loc = document.getElementById("root");
+const root = ReactDOM.createRoot(loc);
+root.render(
+  <>
+    <h1>
+      Hello {name} {surname}
+    </h1>
+    <p>Lucky number is {Math.floor(Math.random() * value) + 1}</p>
+  </>
+);
