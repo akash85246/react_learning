@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function Tile() {
   const date = new Date();
   const year = date.getFullYear();
-  const sec = date.getSeconds();
+
   const month = date.toLocaleString("default", { month: "long" });
 
   const dat = date.getDate();
@@ -16,7 +16,8 @@ export default function Tile() {
   };
 
   const handleEditClick = () => {
-    const newTitle = prompt("Enter a new title:", title);
+    var newTitle = prompt("Enter a new title:", title);
+    newTitle = newTitle.slice(0, 50);
     if (newTitle !== null) {
       setTitle(newTitle);
     }

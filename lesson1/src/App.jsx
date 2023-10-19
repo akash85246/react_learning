@@ -4,27 +4,27 @@ import Tile from "./Tile";
 import Footer from "./Footer";
 
 export default function App() {
-  const [components, setComponents] = useState([]);
+  const [tiles, setTiles] = useState([]);
 
-  const addNewComponent = () => {
-    setComponents([<Tile key={components.length} />, ...components]);
+  const addNewTile = () => {
+    setTiles([...tiles, <Tile key={tiles.length} />]);
   };
 
   return (
     <>
-      <>
-        <Heading />
-        <button className="new" onClick={addNewComponent}>
-          +
-        </button>
-      </>
+      <Heading /> 
+      <button className="new" onClick={addNewTile}>
+        +
+      </button>
+
       <div className="page-container">
-        {components.map((component, index) => (
-          <div className="tile-container" key={index + 3}>
-            {component}
+        {tiles.map((tile, index) => (
+          <div className="tile-container" key={index}>
+            {tile}
           </div>
         ))}
       </div>
+      
       <Footer />
     </>
   );
