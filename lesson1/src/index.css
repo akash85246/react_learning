@@ -30,9 +30,6 @@
   /* font-size: 3.5rem; */
   background-color: white;
 }
-html {
-  overflow: none;
-}
 #root > div {
   height: 20vh;
   width: 100vw;
@@ -44,7 +41,12 @@ html {
   background-color: blue;
   text-align: center;
 }
-
+#root {
+  overflow: hidden;
+  background-image: url("https://picsum.photos/1080");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .button {
   border: none;
   display: flex;
@@ -66,6 +68,7 @@ html {
 .page-container {
   overflow-y: scroll;
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,12 +76,13 @@ html {
 }
 
 footer {
-  margin-top: 20%;
   z-index: -1;
   text-align: center;
 }
 
 .page-container {
   margin-top: 0;
+  min-height: 75vh;
+  min-width: 60vw;
   transition: margin-top 0.5s ease-in-out;
 }
