@@ -67,7 +67,6 @@ function App() {
           onChange={handleChange}
           type="text"
           value={inputText}
-          placeholder="Edit Title"
           placeholder="Edit Description"
         />
 
