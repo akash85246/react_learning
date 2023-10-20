@@ -1,31 +1,102 @@
 import React, { useState } from "react";
+import ToDoItem from "./Tile";
 import Heading from "./Heading";
-import Tile from "./Tile";
-import Footer from "./Footer";
 
-export default function App() {
-  const [tiles, setTiles] = useState([]);
+function App() {
+  const [inputText, setInputText] = useState("");
+  const [items, setItems] = useState([]);
+  const [editIndex, setEditIndex] = useState(null); // To keep track of the item being edited.
+  const [editTitle, setEditTitle] = useState(""); // To store the edited title.
 
-  const addNewTile = () => {
-    setTiles([...tiles, <Tile key={tiles.length} />]);
-  };
+  function handleChange(event) {
+    const newValue = event.target.value;
+    setInputText(newValue);
+  }
+
+  function handleTitleChange(event) {
+    const newTitle = event.target.value;
+    setEditTitle(newTitle);
+  }
+
+  function addItem() {
+    if (editIndex !== null) {
+      return;
+    } else {
+      setItems((prevItems) => [
+        ...prevItems,
+        { title: editTitle, text: inputText },
+      ]);
+      setInputText("");
+      setEditTitle("");
+    }
+  }
+
+  function deleteItem(id) {
+    setItems((prevItems) => prevItems.filter((_, index) => index !== id));
+  }
+
+  function editItem(id) {
+    // Set the inputText and editTitle to the text and title of the item being edited.
+    setInputText(items[id].text);
+    setEditTitle(items[id].title);
+    setEditIndex(id);
+  }
+
+  function updateItem() {
+    if (editIndex !== null) {
+      items[editIndex] = { title: editTitle, text: inputText };
+      setItems([...items]);
+      setInputText("");
+      setEditTitle("");
+      setEditIndex(null);
+    }
+  }
 
   return (
-    <>
-      <Heading /> 
-      <button className="new" onClick={addNewTile}>
-        +
-      </button>
+    <div className="container">
+      <Heading />
+      <div className="form">
+        <input
+          style={{ width: "50%" }}
+          onChange={handleTitleChange}
+          type="text"
+          value={editTitle}
+          placeholder="Edit Title"
+        />
+        <input
+          onChange={handleChange}
+          type="text"
+          value={inputText}
+          placeholder="Edit Title"
+          placeholder="Edit Description"
+        />
 
-      <div className="page-container">
-        {tiles.map((tile, index) => (
-          <div className="tile-container" key={index}>
-            {tile}
-          </div>
-        ))}
+        {editIndex !== null ? (
+          <button onClick={updateItem}>
+            <span>Save</span>
+          </button>
+        ) : (
+          <button onClick={addItem}>
+            <span>+</span>
+          </button>
+        )}
       </div>
-      
-      <Footer />
-    </>
+      <div>
+        <ul>
+          {items.map((item, index) => (
+            <ToDoItem
+              key={index}
+              id={index}
+              title={item.title}
+              text={item.text}
+              onChecked={deleteItem}
+              onEdit={editItem}
+            />
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
+
+export default App;

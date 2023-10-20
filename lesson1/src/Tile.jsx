@@ -1,48 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Tile() {
+function ToDoItem(props) {
   const date = new Date();
   const year = date.getFullYear();
-
-  const month = date.toLocaleString("default", { month: "long" });
-
-  const dat = date.getDate();
-
-  const [isTileVisible, setTileVisible] = useState(true);
-  const [title, setTitle] = useState("Title");
-
-  const handleRemoveClick = () => {
-    setTileVisible(false);
-  };
-
-  const handleEditClick = () => {
-    var newTitle = prompt("Enter a new title:", title);
-    newTitle = newTitle.slice(0, 50);
-    if (newTitle !== null) {
-      setTitle(newTitle);
-    }
-  };
-
-  if (!isTileVisible) {
-    return null;
-  }
+  const da = date.getDate();
+  const month = date.getMonth() + 1;
 
   return (
-    <div className="container">
-      <div className="tile">
-        <h2 className="noteTitle" spellCheck="false">
-          {title}
-        </h2>
-        <h3 className="date titleBody">{month + " " + dat + " " + year}</h3>
-        <div className="button">
-          <button className="butt b1" onClick={handleEditClick}>
-            edit
-          </button>
-          <button className="butt b2" onClick={handleRemoveClick}>
-            remove
-          </button>
-        </div>
+    <div style={{ display: "flex", flexDirection: "column" }} className="block">
+      <div>
+      <h3 style={{textAlign:"left"}}>{props.title}</h3>
+        <li style={{ listStyleType: "none" }}>{props.text}</li>
+      </div>
+      <div style={{display:"flex"}}>
+        <button
+          onClick={() => {
+            props.onChecked(props.id);
+          }}
+          className="button"
+        >
+          {" "}
+          -
+        </button>
+        <button
+          onClick={() => {
+            props.onEdit(props.id);
+          }}
+          className="button"
+        >
+          edit
+        </button>
+        <div className="editDate">edited {da}/{month}/{year}</div>
       </div>
     </div>
   );
 }
+
+export default ToDoItem;

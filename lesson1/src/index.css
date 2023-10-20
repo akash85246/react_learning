@@ -1,88 +1,99 @@
-.head {
-  background-color: blue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  justify-content: space-between;
-  position: sticky;
-  row-gap: 0.5px;
-}
-.head > .header {
-  text-align: center;
-  width: 90vw;
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
-}
-.new {
-  width: 80px;
-  font-size: 3rem;
-  color: white;
-  background-color: blue;
-  font-weight: 900;
-  border: none;
-  border-radius: 50%;
-  position: sticky;
-}
-.new:hover {
-  color: blue;
-  /* font-size: 3.5rem; */
-  background-color: white;
-}
-#root > div {
-  height: 20vh;
-  width: 100vw;
-}
-#root > div > h3 {
-  font-size: 0.8rem;
-}
-.noteTitle {
-  background-color: blue;
-  text-align: center;
-}
-#root {
-  overflow: hidden;
-  background-image: url("https://picsum.photos/1080");
+body {
+  background-image: url(https://picsum.photos/1280);
   background-repeat: no-repeat;
   background-size: cover;
-}
-.button {
-  border: none;
+  min-height: 70vh;
+  padding: 1rem;
   display: flex;
-  column-gap: 3vw;
-  text-align: center;
-}
-.butt {
-  border-radius: 25px;
-  font-size: 15px;
-  font-weight: 700;
-}
-.tile {
-  margin: 0px;
-  margin-top: 2vh;
-  min-width: 100vh;
-  min-height: 20vh;
-  background-color: rgb(139, 139, 236);
-}
-.page-container {
-  overflow-y: scroll;
-  min-height: 100vh;
-  max-height: 100vh;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-footer {
-  z-index: -1;
+  font-family: "Roboto", sans-serif;
   text-align: center;
+  font-size: 130%;
 }
 
-.page-container {
+.container {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  max-width: 500px;
+  min-width: 80vw;
+  background-color: rgba(103, 103, 244, 0.4);
+  background-size: 25px 25px;
+
+  padding: 1rem;
+}
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.heading h1 {
   margin-top: 0;
-  min-height: 75vh;
-  min-width: 60vw;
-  transition: margin-top 0.5s ease-in-out;
+  width: 100%;
+  padding: 0.2rem 1.2rem;
+  background-color: blue;
+  color: white;
+  font-size: 250%;
+  font-family: "Roboto", sans-serif;
+}
+
+.form input {
+  background-color: transparent;
+  padding: 0.7rem;
+  margin: 10px;
+  border: solid 3px white;
+  border-bottom: solid 3px purple;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: white;
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+  width: 120px;
+  height: 60px;
+  font-size: 130%;
+  font-weight: 900;
+}
+button:hover {
+  background-color: white;
+  color: blue;
+}
+
+li {
+  text-align: left;
+  position: relative;
+  padding: 0.5rem;
+  color: white;
+}
+.button {
+  border-radius: 50%;
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  margin-left: 2vw;
+  margin-bottom: 2vw;
+}
+.editDate {
+  position: relative;
+  color: grey;
+  font-size: 10px;
+  margin-top: 3vh;
+  margin-right: 0;
+  margin-left: 70%;
+}
+.block {
+  background-color: rgba(148, 2, 148, 0.8);
+  margin-bottom: 1vw;
 }
